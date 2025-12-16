@@ -6,6 +6,7 @@ com\chatApp\demo\entity\User.class
 com\chatApp\demo\websocket\ChatWebSocketHandler.class
 com\chatApp\demo\config\WebSecurityConfig.class
 com\chatApp\demo\repository\MessageRepository.class
+com\chatApp\demo\config\WebSecurityConfig$1.class
 com\chatApp\demo\config\WebSocketConfig.class
 com\chatApp\demo\DemoApplication.class
 com\chatApp\demo\controller\AuthController.class

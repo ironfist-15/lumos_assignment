@@ -24,63 +24,63 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http
-//            .csrf(AbstractHttpConfigurer::disable)
-//            .cors(Customizer.withDefaults())
-//            .sessionManagement(session ->
-//                session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-//            )
-//            .authorizeHttpRequests(auth -> auth
-//                .requestMatchers("/api/chat/**").permitAll()
-//                .requestMatchers("/ws/**").permitAll()
-//                .requestMatchers("/api/auth/**").permitAll()
-//                .anyRequest().permitAll()
-//            )
-//            .exceptionHandling(ex -> ex
-//                .authenticationEntryPoint((req, res, auth) -> {
-//                    res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-//                })
-//            )
-//            .formLogin(Customizer.withDefaults());
-//
-//        return http.build();
-//    }
-//
-//
-//
-//    @Bean
-//    public WebMvcConfigurer corsConfigurer() {
-//        return new WebMvcConfigurer() {
-//            @Override
-//            public void addCorsMappings(CorsRegistry registry) {
-//                registry.addMapping("/**")
-//                        .allowedOrigins("*")
-//                        .allowedMethods("*")
-//                        .allowedHeaders("*")
-//                        .allowCredentials(true);
-//            }
-//        };
-//    }
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            .csrf(AbstractHttpConfigurer::disable)
+            .cors(Customizer.withDefaults())
+            .sessionManagement(session ->
+                session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+            )
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/chat/**").permitAll()
+                .requestMatchers("/ws/**").permitAll()
+                .requestMatchers("/api/auth/**").permitAll()
+                .anyRequest().permitAll()
+            )
+            .exceptionHandling(ex -> ex
+                .authenticationEntryPoint((req, res, auth) -> {
+                    res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                })
+            )
+            .formLogin(Customizer.withDefaults());
+
+        return http.build();
+    }
 
 
-        @Bean
-        public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-            http
-                .csrf(AbstractHttpConfigurer::disable)
-                .cors(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth
-                    .anyRequest().permitAll()
-                )
-                .sessionManagement(session ->
-                    session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                )
-                .formLogin(AbstractHttpConfigurer::disable)
-                .httpBasic(AbstractHttpConfigurer::disable);
 
-            return http.build();
-        }
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("*")
+                        .allowedMethods("*")
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
+            }
+        };
+    }
+
+
+//        @Bean
+//        public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//            http
+//                .csrf(AbstractHttpConfigurer::disable)
+//                .cors(AbstractHttpConfigurer::disable)
+//                .authorizeHttpRequests(auth -> auth
+//                    .anyRequest().permitAll()
+//                )
+//                .sessionManagement(session ->
+//                    session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//                )
+//                .formLogin(AbstractHttpConfigurer::disable)
+//                .httpBasic(AbstractHttpConfigurer::disable);
+//
+//            return http.build();
+//        }
 
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepository) {
