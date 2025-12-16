@@ -1,0 +1,13 @@
+com\chatApp\demo\controller\ChatHistoryController.class
+com\chatApp\demo\service\AuthService.class
+com\chatApp\demo\repository\UserRepository.class
+com\chatApp\demo\ConversationDTO.class
+com\chatApp\demo\entity\User.class
+com\chatApp\demo\websocket\ChatWebSocketHandler.class
+com\chatApp\demo\config\WebSecurityConfig.class
+com\chatApp\demo\repository\MessageRepository.class
+com\chatApp\demo\config\WebSocketConfig.class
+com\chatApp\demo\DemoApplication.class
+com\chatApp\demo\controller\AuthController.class
+com\chatApp\demo\entity\ChatMessage.class
+com\chatApp\demo\service\ChatService.class
